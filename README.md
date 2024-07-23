@@ -39,7 +39,7 @@ Place the PDF file (SP Market Attributes - January 2010.pdf) in the project dire
 ## Run the demo script:
 
 ```
-python rag_demo.py
+python simple_rag.py
 ```
 
 ## Script Overview
