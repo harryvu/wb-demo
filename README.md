@@ -62,14 +62,15 @@ An example query provided in the script:
 ```
 query="Why the global markets down by 3.97%?"
 The script will generate a response based on the contents of the PDF document.
+```
 
 ## Acknowledgements
 This demo uses the following libraries:
 
-LangChain
-OpenAI
-FAISS
-dotenv
+- LangChain
+- OpenAI
+- FAISS
+- dotenv
 
 
 ## License
