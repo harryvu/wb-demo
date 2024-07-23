@@ -41,7 +41,7 @@ docs = db.similarity_search_with_score(query)
 content = "\n\n".join([doc[0].page_content for doc in docs])
 
 template = \
-"You are an intelligent assistant helping developer with their questions about Containerized applications. " + \
+"You are an intelligent assistant helping user with their questions about finance and economy. " + \
 "Use 'you' to refer to the individual asking the questions even if they ask with 'I'. " + \
 "Answer the following question using only the data provided in the sources below. " + \
 "Each source has a name followed by colon and the actual information, always include the source name for each fact you use in the response at the end of the answer in the square brackets. " + \
