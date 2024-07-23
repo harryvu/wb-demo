@@ -36,7 +36,6 @@ db = FAISS.from_documents(pages, embeddings_model)
 query="Why the global markets down by 3.97%?"
 
 docs = db.similarity_search_with_score(query)
-#print(docs[0][0].page_content)
 
 # join all page_content of each result into a single string
 content = "\n\n".join([doc[0].page_content for doc in docs])
@@ -58,14 +57,21 @@ Sources: (as specific to page level as possible)
 Answer:
 """
 
-prompt = template.format(q=query, retrieved=content)
-response = client.chat.completions.create(
-    model="gpt-3.5-turbo-1106",
-    messages=[
-            {"role": "system", "content": "You are helpful assistant."},
-            {"role": "user", "content": prompt}
-        ],
-    temperature=0
-)
+while True:
+    print("\n==============================")
+    query = input("Enter your question: ")
+    if query.upper() == "ESC" or query.upper() == "EXIT" or query.upper() == "QUIT":
+        break
 
-print(response.choices[0].message.content)
+    prompt = template.format(q=query, retrieved=content)
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo-1106",
+        messages=[
+                {"role": "system", "content": "You are an expert in finance and economy."},
+                {"role": "user", "content": prompt}
+            ],
+        temperature=0
+    )
+
+    print(response.choices[0].message.content)
+
